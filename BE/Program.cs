@@ -1,6 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddSingleton<DBconnectionService>();
 // Add services to the container.
+
+//builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -21,5 +23,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MapGet("/test-connection", async (DBconnectionService mongoDbConnection) =>
+{
+    var database = mongoDbConnection.Database;
+    return Results.Ok($"Successfully connected to database: {database.DatabaseNamespace.DatabaseName}");
+});
 app.Run();
