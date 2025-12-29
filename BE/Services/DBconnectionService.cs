@@ -1,13 +1,14 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-class DBconnectionService
+public class DBconnectionService
 
 {
-    private static IMongoClient _mongoClient;
-    private static IMongoDatabase _database;
+    public static IMongoClient _mongoClient;
+    public static IMongoDatabase _database;
     private readonly string _connectionString;
     private readonly string _databaseName;
+
     public DBconnectionService(IConfiguration configuration)
     {
         _connectionString = configuration.GetValue<string>("ConnectionStrings:DefaultConnection");

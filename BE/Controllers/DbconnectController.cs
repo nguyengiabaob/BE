@@ -7,11 +7,16 @@ namespace BE.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IMongoCollection<Student> _usercollection;
-        [HttpGet]
-        public string Get()
+        public DefaultService _defaultService { get; set; }
+
+        public UserController(DefaultService defaultService)
         {
-            return "Hello from DBConnectController";
+            _defaultService = defaultService;
+        }
+        [HttpGet]
+        public object GetRetaurant()
+        {
+            return _defaultService.GetStudent();
         }
     }
 }
