@@ -3,7 +3,7 @@ builder.Services.AddSingleton<DBconnectionService>();
 // Add services to the container.
 
 //builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
-
+builder.Services.AddSingleton<DefaultService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

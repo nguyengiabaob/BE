@@ -1,3 +1,4 @@
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 public class DefaultService
@@ -10,10 +11,17 @@ public class DefaultService
 
     }
 
-    public async Task<Student> GetStudent()
+    /// <summary>
+    /// Retrieves a student from the database.
+    /// </summary>
+    /// <returns>
+    /// A task that represents the asynchronous operation.
+    /// The task result contains the student if found, otherwise null.
+    /// </returns>
+    public async Task<Object> GetStudent()
     {
-        var studentCollection = _DatabaseService.Database.GetCollection<Student>("restaurant");
-        var student = await studentCollection.Find(_ => true).FirstOrDefaultAsync();
+        var studentCollection = _DatabaseService.Database.GetCollection<Object>("neighborhoods");
+        var student = studentCollection.Find(new BsonDocument()).FirstOrDefault();
         return student;
     }
 }

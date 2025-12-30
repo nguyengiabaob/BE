@@ -13,7 +13,7 @@ namespace BE.Controllers
         {
             _defaultService = defaultService;
         }
-        [HttpGet]
+        [HttpGet("AllRetaurant")]
         public object GetRetaurant()
         {
             return _defaultService.GetStudent();

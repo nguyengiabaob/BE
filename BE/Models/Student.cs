@@ -1,4 +1,5 @@
 // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+using System.Text.Json.Serialization;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 public class Address
@@ -30,13 +31,21 @@ public class Id
 
 public class Student
 {
-    [BsonId]
+    [BsonIgnore]
     public Id _id { get; set; }
-    public Address address { get; set; }
-    public string borough { get; set; }
-    public string cuisine { get; set; }
-    public List<Grade> grades { get; set; }
-    public string name { get; set; }
-    public string restaurant_id { get; set; }
+    // [BsonIgnore]
+    //     public Address address { get; set; }
+    //     [BsonIgnore]
+    //     public string borough { get; set; }
+    //     [BsonIgnore]
+    //     public string cuisine { get; set; }
+    //     [BsonIgnore]
+    //     public List<Grade> grades { get; set; }
+    //     [BsonIgnore]
+    //     public string name { get; set; }
+    //     [BsonIgnore]
+    //     public string restaurant_id { get; set; }
+    //     [JsonIgnore]  // Ignore the Action property during serialization
+    //     public Action MoveNextAction { get; set; }
 }
 
