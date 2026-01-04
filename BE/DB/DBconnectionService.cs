@@ -18,6 +18,7 @@ public class DBconnectionService
     private static readonly object lockObj = new object();
     public IMongoDatabase Database
     {
+
         get
         {
             if (_database == null)
@@ -25,9 +26,17 @@ public class DBconnectionService
                 lock (lockObj)
                 {
 
-
+                    try
+                    {
                     _mongoClient = new MongoClient(_connectionString);  // MongoDB Client connection
                     _database = _mongoClient.GetDatabase(_databaseName); // Access the specified database
+                    }
+                    catch (System.Exception)
+                    {
+                        
+                        throw;
+                    }
+                   
 
                 }
             }

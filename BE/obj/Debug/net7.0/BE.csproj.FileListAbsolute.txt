@@ -41,3 +41,42 @@ D:\Project\New folder (2)\work-next-app-BE\BE\BE\obj\Debug\net7.0\refint\BE.dll
 D:\Project\New folder (2)\work-next-app-BE\BE\BE\obj\Debug\net7.0\BE.pdb
 D:\Project\New folder (2)\work-next-app-BE\BE\BE\obj\Debug\net7.0\BE.genruntimeconfig.cache
 D:\Project\New folder (2)\work-next-app-BE\BE\BE\obj\Debug\net7.0\ref\BE.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\appsettings.Development.json
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\appsettings.json
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\BE.exe
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\BE.deps.json
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\BE.runtimeconfig.json
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\BE.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\BE.pdb
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\DnsClient.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\Microsoft.OpenApi.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\MongoDB.Bson.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\MongoDB.Driver.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\SharpCompress.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\Snappier.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\CompanyProject\LMSBE\BE\BE\bin\Debug\net7.0\ZstdSharp.dll
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\BE.csproj.AssemblyReference.cache
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\BE.GeneratedMSBuildEditorConfig.editorconfig
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\BE.AssemblyInfoInputs.cache
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\BE.AssemblyInfo.cs
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\BE.csproj.CoreCompileInputs.cache
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\BE.MvcApplicationPartsAssemblyInfo.cs
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\BE.MvcApplicationPartsAssemblyInfo.cache
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\staticwebassets\msbuild.BE.Microsoft.AspNetCore.StaticWebAssets.props
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\staticwebassets\msbuild.build.BE.props
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.BE.props
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.BE.props
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\staticwebassets.pack.json
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\staticwebassets.build.json
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\staticwebassets.development.json
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\scopedcss\bundle\BE.styles.css
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\BE.csproj.CopyComplete
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\BE.dll
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\refint\BE.dll
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\BE.pdb
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\BE.genruntimeconfig.cache
+D:\CompanyProject\LMSBE\BE\BE\obj\Debug\net7.0\ref\BE.dll

@@ -13,39 +13,36 @@ public class Address
 public class Date
 {
 
-    public DateTime date { get; set; }
+    public string date { get; set; }
 }
 
 public class Grade
 {
-    public Date date { get; set; }
+
+    public DateTime date { get; set; }
     public string grade { get; set; }
     public int score { get; set; }
 }
 
-public class Id
-{
 
-    public string oid { get; set; }
-}
 
 public class Student
 {
-    [BsonIgnore]
-    public Id _id { get; set; }
-    // [BsonIgnore]
-    //     public Address address { get; set; }
-    //     [BsonIgnore]
-    //     public string borough { get; set; }
-    //     [BsonIgnore]
-    //     public string cuisine { get; set; }
-    //     [BsonIgnore]
-    //     public List<Grade> grades { get; set; }
-    //     [BsonIgnore]
-    //     public string name { get; set; }
-    //     [BsonIgnore]
-    //     public string restaurant_id { get; set; }
-    //     [JsonIgnore]  // Ignore the Action property during serialization
-    //     public Action MoveNextAction { get; set; }
+        [BsonId]
+        public object _id { get; set; }
+    
+        public Address address { get; set; }
+      
+        public string borough { get; set; }
+   
+        public string cuisine { get; set; }
+
+        public List<Grade> grades { get; set; }
+    
+        public string name { get; set; }
+     
+        public string restaurant_id { get; set; }
+        // Ignore the Action property during serialization
+
 }
 

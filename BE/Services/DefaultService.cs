@@ -18,10 +18,23 @@ public class DefaultService
     /// A task that represents the asynchronous operation.
     /// The task result contains the student if found, otherwise null.
     /// </returns>
-    public async Task<Object> GetStudent()
+    public async Task<Student> GetStudent()
     {
-        var studentCollection = _DatabaseService.Database.GetCollection<Object>("neighborhoods");
-        var student = studentCollection.Find(new BsonDocument()).FirstOrDefault();
-        return student;
+        
+        try
+        {
+            var studentCollection = _DatabaseService.Database.GetCollection<Student>("restaurants");
+             var data = await studentCollection.Find(_ => true).FirstOrDefaultAsync();
+            return data;
+        }
+        catch (System.Exception ex)
+        {
+            return null;
+            throw;
+        }
+
+       
+        //var student = studentCollection.Find(new BsonDocument()).FirstOrDefault();
+      
     }
 }

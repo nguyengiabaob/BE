@@ -1,22 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace BE.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class AuthController : ControllerBase
     {
         public DefaultService _defaultService { get; set; }
 
-        public UserController(DefaultService defaultService)
+        public AuthController(DefaultService defaultService)
         {
             _defaultService = defaultService;
         }
         [HttpGet("AllRetaurant")]
-        public object GetRetaurant()
+        public async Task<object> GetRetaurant()
         {
-            return _defaultService.GetStudent();
+            var a = await _defaultService.GetStudent();
+            return  a;
         }
     }
 }
