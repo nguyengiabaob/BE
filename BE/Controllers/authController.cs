@@ -8,17 +8,19 @@ namespace BE.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        public DefaultService _defaultService { get; set; }
+        public IAuthService _authService { get; set; }
 
-        public AuthController(DefaultService defaultService)
+        public AuthController(IAuthService authService)
         {
-            _defaultService = defaultService;
+            _authService = authService;
         }
-        [HttpGet("AllRetaurant")]
-        public async Task<object> GetRetaurant()
+
+
+        [HttpPost("Resgister")]
+        public async Task<object> Resgister(RegisterData data)
         {
-            var a = await _defaultService.GetStudent();
-            return  a;
+            var a = await _authService.Resgister(data);
+            return a;
         }
     }
 }

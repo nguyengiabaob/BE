@@ -1,7 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<DBconnectionService>();
 // Add services to the container.
-
+builder.Services.AddSingleton<IAuthService, AuthService>();
 //builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddSingleton<DefaultService>();
 builder.Services.AddControllers();

@@ -1,13 +1,18 @@
+using System.Net;
+using System.Net.Mail;
+
 public static class EmailUtils
 {
 
-    public static  async Task<void> SendVerificationEmail (VerificationEmailContext context)
-    {
-        var verificationLink = $"https://yourdomain.com/auth/verify-email/{context.Token}";
-        var displayName = context.Username ?? "Bạn";
+
+  public static async Task<string> SendVerificationEmail(VerificationEmailContext context)
+  {
+    var path = Directory.GetCurrentDirectory() + "";
+    var verificationLink = $"https://yourdomain.com/auth/verify-email/{context.Token}";
+    var displayName = context.Username ?? "Bạn";
 
 
-        var htmlEmail = $@"<div style=""font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;"">
+    var htmlEmail = $@"<div style=""font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;"">
         <div style=""text-align: center; margin-bottom: 30px;"">
           <h1 style=""color: #333; font-size: 24px;"">Xác thực tài khoản</h1>
         </div>
@@ -45,42 +50,56 @@ public static class EmailUtils
           </p>
         </div>
       </div>";
-    }// Email utility methods would go here
-}
 
-public static async Task<void> SendMail (EmailOptions options )
-{
-
-    var emailSettings = new EmailSettings
+    var email = new EmailOptions()
     {
-        Host = "smtp.your-email-provider.com",
-        Port = 587,
-        Username = "",
-        Password = "",
-        FromEmail = "",
-        FromName = "LMS Support"
+      Email = context.Email,
+      Subject = "Xác thực tài khoản",
+      Html = htmlEmail
     };
 
-    var emailMessage = new MimeMessage();
-    emailMessage.From.Add(new MailboxAddress(emailSettings.FromName, emailSettings.FromEmail));
-    emailMessage.To.Add(MailboxAddress.Parse(options.Email));
-    emailMessage.Subject = options.Subject;
+    await SendMail(email);
+    return null;
 
-    var bodyBuilder = new BodyBuilder
-    {
-        HtmlBody = options.Html,
-        TextBody = options.Text
-    };
-    emailMessage.Body = bodyBuilder.ToMessageBody();
+  }// Email utility methods would go here
 
-    using (var client = new SmtpClient())
+
+  public static async Task<string> SendMail(EmailOptions options)
+  {
+    try
     {
-        await client.ConnectAsync(emailSettings.Host, emailSettings.Port, SecureSocketOptions.StartTls);
-        await client.AuthenticateAsync(emailSettings.Username, emailSettings.Password);
-        await client.SendAsync(emailMessage);
-        await client.DisconnectAsync(true);
+      var builder = new ConfigurationBuilder().SetBasePath(".").AddJsonFile("appsettings.json").Build();
+      if (builder != null)
+      {
+        var emailSettings = new SmtpClient
+        {
+          Host = builder["EmailSettings:EMAIL_HOST"],
+          Port = 587,
+          EnableSsl = true,
+          DeliveryMethod = SmtpDeliveryMethod.Network,
+          UseDefaultCredentials = false,
+          Credentials = new NetworkCredential(builder["EmailSettings:EMAIL_USERNAME"], builder["EmailSettings:EMAIL_PASSWORD"])
+        };
+
+        var from = new MailAddress(builder["EmailSettings:EMAIL_FROM_NAME"], builder["EmailSettings:EMAIL_FROM"]);
+        var to = new MailAddress(options.Email, options.Text);
+        var emailMessage = new MailMessage();
+        emailMessage.From = from;
+        emailMessage.To.Add(to);
+        emailMessage.Subject = options.Subject;
+        emailMessage.Body = options.Html;
+        await emailSettings.SendMailAsync(emailMessage);
+        return "Email sent successfully";
+      }
+      return null;
     }
-  
+    catch (System.Exception ex)
+    {
+      return "Error" + ex.ToString();
+      throw;
+    }
+
+  }
 
 }
 
@@ -88,21 +107,22 @@ public static async Task<void> SendMail (EmailOptions options )
 
 
 
-class  VerificationEmailContext
-{
-    public string Email { get; set; }
-    public string Token { get; set; }
 
-    public string Username { get; set; }
-    // Other email context properties
+public class VerificationEmailContext
+{
+  public string Email { get; set; }
+  public string Token { get; set; }
+
+  public string Username { get; set; }
+  // Other email context properties
 }
 
-interface EmailOptions
+public class EmailOptions
 {
-    string Email { get; set; }
-    string Subject { get; set; }    
+  public string Email { get; set; }
+  public string Subject { get; set; }
 
-    string Html { get; set; }
+  public string Html { get; set; }
 
-    string Text { get; set; }
+  public string Text { get; set; }
 }

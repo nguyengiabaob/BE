@@ -6,15 +6,15 @@ using Microsoft.IdentityModel.Tokens;
 public static class AuthUtils
 {
 
-    public static string GenerateToken()    
+    public static string GenerateToken()
     {
-        var secret = "your_secret_key"; // Replace with your actual secret key
+        var secret = "your_secret_key_2025_choigamesss"; // Replace with your actual secret key
         var expiresIn = DateTime.UtcNow.AddHours(1);
         var tokenHandler = new JwtSecurityTokenHandler();
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, "user_id"),
-        
+
         };
         var tokenDescriptor = new SecurityTokenDescriptor
         {
@@ -27,35 +27,35 @@ public static class AuthUtils
         return tokenHandler.WriteToken(token);
     }
 
-    public static string GenerateVerificationToken( string userId)
+    public static string GenerateVerificationToken(string userId)
     {
-        var secret  = "your_secret_key"; // Replace with your actual secret key
+        var secret = "your_secret_key_2025_choigamesss"; // Replace with your actual secret key
         // Implement token generation logic here
         var expiresIn = DateTime.UtcNow.AddHours(1);
 
-         var tokenHandler = new JwtSecurityTokenHandler();
+        var tokenHandler = new JwtSecurityTokenHandler();
 
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, userId),
             new Claim("type", "verification")
-            
+
         };
         var tokenDescriptor = new SecurityTokenDescriptor
         {
+
             Subject = new ClaimsIdentity(claims),
             Expires = expiresIn,
-               EncryptingCredentials = new EncryptingCredentials(new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(secret)), SecurityAlgorithms.Aes128KW, SecurityAlgorithms.Aes128CbcHmacSha256),
+            EncryptingCredentials = new EncryptingCredentials(new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(secret)), SecurityAlgorithms.Aes128CbcHmacSha256, SecurityAlgorithms.Aes128CbcHmacSha256),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(secret)), SecurityAlgorithms.HmacSha256Signature)
         };
         var token = tokenHandler.CreateToken(tokenDescriptor);
-      return tokenHandler.WriteToken(token);
+        return tokenHandler.WriteToken(token);
     }
     public static string HashPassword(string password)
-    { 
+    {
 
-        var saltRounds = 12; // Adjust the cost factor as needed
-        // Implement password hashing logic here
+        var saltRounds = 12;
         return BCrypt.Net.BCrypt.HashPassword(password, saltRounds);
     }
 

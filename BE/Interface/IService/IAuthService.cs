@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 //using BE.Models;
 
- interface IAuthService
+public interface IAuthService
 {
-    Task<string> Resgister( RegisterData data);
+    public Task<string> Resgister(RegisterData data);
 }
